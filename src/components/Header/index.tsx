@@ -1,8 +1,10 @@
 import React from "react";
 import { SignInButton } from "../SignInButton";
-
+import Link from "next/link";
 
 import styles from "./styles.module.scss";
+import { useRouter } from "next/dist/client/router";
+import ActiveLink from "../ActiveLink";
 
 export const Header: React.FC = () => {
   return (
@@ -10,8 +12,12 @@ export const Header: React.FC = () => {
       <div className={styles.headerContent}>
         <img src="/images/logo.svg" alt="ig.news" />
         <nav>
-          <a className={styles.active}>Home</a>
-          <a>Posts</a>
+          <ActiveLink href="/" activeClassName={styles.active}>
+            <a>Home</a>
+          </ActiveLink>
+          <ActiveLink href="/posts" prefetch activeClassName={styles.active}>
+            <a>Posts</a>
+          </ActiveLink>
         </nav>
         <SignInButton />
       </div>
