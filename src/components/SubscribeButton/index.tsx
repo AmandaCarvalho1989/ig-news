@@ -1,4 +1,5 @@
 import { signIn, useSession } from "next-auth/client";
+import { useRouter } from "next/dist/client/router";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
@@ -13,9 +14,15 @@ export const SubscribeButton: React.FC<SubscribeButtonProps> = ({
   priceId,
 }) => {
   const [session] = useSession();
+  const router = useRouter();
   const handleSubscribe = async () => {
     if (!session) {
       signIn("github");
+      return;
+    }
+
+    if (session.activeSubscription) {
+      router.push("/posts");
       return;
     }
 
