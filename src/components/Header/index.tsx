@@ -10,6 +10,7 @@ export const Header: React.FC = () => {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/images/logo.svg" alt="ig.news" />
         <nav>
           <ActiveLink href="/" activeClassName={styles.active}>
