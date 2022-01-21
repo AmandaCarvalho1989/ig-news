@@ -60,7 +60,7 @@ export default PostPreview;
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: true,
+    fallback: 'blocking',
 
     // true, false , blocking
   };
