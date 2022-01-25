@@ -29,6 +29,8 @@ export const SubscribeButton: React.FC<SubscribeButtonProps> = ({
     try {
       const response = await api.post("/subscribe");
 
+      console.log({response})
+
       const { sessionId } = response.data;
 
       const stripe = await getStripeJs();
